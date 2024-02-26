@@ -4,17 +4,17 @@ import React, { useState } from 'react'
 
 export const LoginComponent = () => {
     const navigate = useNavigate();
-    const items = ['Stark', 'Lannister', 'Targaryen']
-    const [formState, setFormState] = useState({
-        user: '',
-        password: ''       
-      })
+    
+    // const [formState, setFormState] = useState({
+    //     user: '',
+    //     password: ''       
+    //   })
 
-    const onReset = () => {
-        navigate('/stark', {
-          replace: true
-        });
-      }
+    // const onReset = () => {
+    //     navigate('/stark', {
+    //       replace: true
+    //     });
+    //   }
       
   
     return (
