@@ -5,20 +5,16 @@ import { useNavigate } from 'react-router-dom'
 import { AuthContext } from "../context/AuthContextJs";
 import { LoginComponent } from "../components/LoginComp";
 
-export const LoginPage = () => {
+export const RegisterPage = () => {
 
   // const { login } = useContext( AuthContext );
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const onStarkNavigate = () => {
-    navigate('/stark', {
-        replace: true
-    });
-  }
+  const onLogin = () => {
+    login('Ivan Duque');
 
-  const onCreateNavigate = () => {
-    navigate('/auth/register', {
-        replace: true
+    navigate('/', {
+      replace: true
     });
   }
 
@@ -28,7 +24,7 @@ export const LoginPage = () => {
       direction="column"
       alignItems="center"
       justifyContent="center"
-      style={{ minHeight: '100vh', padding: 4, backgroundColor: '#DBF6F2'}}
+      style={{ minHeight: '100vh', backgroundColor: '#DBF6F2', padding: 4 }}
       wrap
     >
       <Paper
@@ -46,11 +42,19 @@ export const LoginPage = () => {
             style={{ marginBottom: 1 }}
             color="normal"
           >
-            Login
+            Crear Cuenta
           </Heading>
         </Cell>
         <form >
           <Grid wrap>
+          <Cell xs={12}>
+              <TextField
+                name='name'
+                label='Full Name'
+                placeholder='Full name'
+
+              />
+            </Cell>
             <Cell xs={12}>
               <TextField
                 name='user'
@@ -70,30 +74,22 @@ export const LoginPage = () => {
             </Cell>
             <Cell xs={12}>
               <HFlow justifyContent='flex-end'>
-                <Button type='submit' kind='primary' skin='default' onClick={onStarkNavigate} >
-                  Login
-                </Button>
-                <Button kind='normal' skin='default' onClick={onCreateNavigate}>
-                  <Icon
-                    icon="link"
-                    size={1.5}
-                    style={{ marginRight: '0.5rem' }}
-                  />
-                  <Text color='inherit'>Registrarse</Text>
-                </Button>
+                <Button type='submit' kind='primary' skin='default' >
+                  Crear Cuenta
+                </Button>                
               </HFlow>
             </Cell>
-            {/* <Cell xs={12}>
+            <Cell xs={12}>
               <HFlow justifyContent='flex-end'>
                 <Link color='inherit'
                       component={ RouterLink } 
-                      href='/auth/register'  
-                      target='_blank'                                     
+                      href='/auth/login'  
+                      target='_blank'                                   
                 >
-                  Crear una cuenta
+                  Ya tienes cuenta?
                 </Link>
               </HFlow>
-            </Cell> */}
+            </Cell>
           </Grid>
         </form>
 
@@ -108,3 +104,4 @@ export const LoginPage = () => {
 
   )
 }
+
